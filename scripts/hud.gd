@@ -33,7 +33,7 @@ func _on_lives_changed(value: int, maximum: int) -> void:
 	if lives_val:
 		var hearts := ""
 		for index in range(maximum):
-			hearts += "❤️" if index < value else "🖤"
+			hearts += "♥ " if index < value else "· "
 		lives_val.text = hearts
 		_pop(lives_val)
 
