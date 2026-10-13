@@ -42,11 +42,10 @@ func take_damage(amount: int = 1, bypass_invulnerability: bool = false) -> void:
 		_start_invulnerability()
 
 func die() -> void:
-	spawn_position = start_position
-	restore_health()
+	# Reload scene agar seluruh state level ikut pulih: player, checkpoint,
+	# buah yang sudah diambil, dan musuh yang sudah dikalahkan.
 	GameState.reset()
-	respawn()
-	_start_invulnerability()
+	get_tree().reload_current_scene()
 
 func hit_by_enemy() -> void:
 	take_damage()
