@@ -34,13 +34,13 @@ func _build_sun() -> void:
 	glow.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	glow.material = _make_sun_glow_material()
 	add_child(glow)
-	_add_parallax_sprite(SUN, Vector2(770, 190), Vector2(0.075, 0.075), 0.035)
+	_add_parallax_sprite(SUN, Vector2(770, 190), Vector2(0.05, 0.05), 0.035)
 
 func _build_clouds() -> void:
-	_add_moving_cloud(CLOUD_1, Vector2(-180, 150), Vector2(0.13, 0.13), 0.08, 7.0)
-	_add_moving_cloud(CLOUD_2, Vector2(380, 90), Vector2(0.10, 0.10), 0.06, 4.5)
-	_add_moving_cloud(CLOUD_1, Vector2(900, 250), Vector2(0.085, 0.085), 0.10, 6.0)
-	_add_moving_cloud(CLOUD_2, Vector2(1320, 175), Vector2(0.075, 0.075), 0.07, 3.5)
+	_add_moving_cloud(CLOUD_1, Vector2(-180, 150), Vector2(0.13, 0.13), 0.08, -7.0)
+	_add_moving_cloud(CLOUD_2, Vector2(380, 90), Vector2(0.10, 0.10), 0.06, -4.5)
+	_add_moving_cloud(CLOUD_1, Vector2(900, 250), Vector2(0.085, 0.085), 0.10, -6.0)
+	_add_moving_cloud(CLOUD_2, Vector2(1320, 175), Vector2(0.075, 0.075), 0.07, -3.5)
 
 func _add_moving_cloud(texture: Texture2D, base_position: Vector2, sprite_scale: Vector2, ratio: float, speed: float) -> void:
 	var sprite := _create_sprite(texture, base_position, sprite_scale, Color(1.0, 0.94, 0.98, 0.82))
