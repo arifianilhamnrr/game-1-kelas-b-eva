@@ -1,0 +1,2 @@
+class_name InstantHazard
+extends HazardBase
