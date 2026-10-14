@@ -37,6 +37,21 @@ echo "Output : $OUTPUT"
 mkdir -p build/android
 rm -f "$OUTPUT"
 
+# android/build/ di-ignore Git dan bisa dibuat ulang dari android_source.zip,
+# jadi pengaturan hemat RAM diterapkan ulang setiap kali build.
+GRADLE_PROPERTIES="android/build/gradle.properties"
+if [ -f "$GRADLE_PROPERTIES" ]; then
+    sed -i '' 's/^org\.gradle\.jvmargs=-Xmx[0-9]*m/org.gradle.jvmargs=-Xmx1536m/' "$GRADLE_PROPERTIES"
+    if ! grep -q 'org.gradle.daemon.idletimeout' "$GRADLE_PROPERTIES"; then
+        {
+            echo ""
+            echo "# Hemat RAM: hentikan Gradle daemon setelah 2 menit menganggur."
+            echo "org.gradle.daemon.idletimeout=120000"
+        } >> "$GRADLE_PROPERTIES"
+    fi
+    echo "Gradle heap: $(grep -oE 'org\.gradle\.jvmargs=.*' "$GRADLE_PROPERTIES")"
+fi
+
 "$GODOT_BIN" --headless --path . "$EXPORT_METHOD" "Android" "$OUTPUT"
 
 if [ -f "$OUTPUT" ]; then

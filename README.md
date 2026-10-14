@@ -148,6 +148,22 @@ Atau pasang manual:
 Catatan: tutup Godot Editor saat melakukan export dari terminal, karena editor
 bisa menimpa `export_presets.cfg` dan mengaktifkan kembali arsitektur `x86`.
 
+### Hemat RAM
+
+Gradle/JVM secara bawaan meminta heap besar (`-Xmx4536m`) dan daemon-nya tetap
+hidup berjam-jam setelah build. `tools/build_android.sh` otomatis menerapkan:
+
+```text
+org.gradle.jvmargs=-Xmx1536m
+org.gradle.daemon.idletimeout=120000
+```
+
+Untuk membebaskan RAM kapan saja (tanpa build ulang):
+
+```bash
+bash tools/free_android_ram.sh
+```
+
 ### Ikon
 
 Ikon launcher bisa dibuat ulang dari `icon.svg`:
