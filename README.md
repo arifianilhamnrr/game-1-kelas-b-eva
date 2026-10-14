@@ -58,30 +58,38 @@ Project ini memakai build Gradle, jadi toolchain berikut wajib tersedia:
 ### Sekali setup
 
 Mesin Intel (x86_64) tidak lagi mendapat bottle Homebrew, jadi toolchain
-diambil langsung dari sumber resmi tanpa sudo:
+diambil langsung dari sumber resmi tanpa sudo, dan dipasang di lokasi standar
+macOS supaya bisa dipakai project lain:
 
 ```bash
-# JDK 17 (Temurin)
-mkdir -p ~/eva-toolchain && cd ~/eva-toolchain
+# JDK 17 (Temurin) -> ~/Library/Java/JavaVirtualMachines/temurin-17.jdk
+mkdir -p ~/Library/Java/JavaVirtualMachines && cd /tmp
 curl -L -o jdk17.tar.gz "https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.20.1%2B1/OpenJDK17U-jdk_x64_mac_hotspot_17.0.20.1_1.tar.gz"
-mkdir -p jdk17 && tar -xzf jdk17.tar.gz -C jdk17 --strip-components=1
+mkdir -p temurin-17.jdk && tar -xzf jdk17.tar.gz -C temurin-17.jdk --strip-components=1
+mv temurin-17.jdk ~/Library/Java/JavaVirtualMachines/
 
-# Android command line tools
+# Android command line tools -> ~/Library/Android/sdk
 curl -L -o cmdline-tools.zip "https://dl.google.com/android/repository/commandlinetools-mac-11076708_latest.zip"
-mkdir -p ~/android-sdk/cmdline-tools
-unzip -q cmdline-tools.zip -d ~/android-sdk/cmdline-tools
-mv ~/android-sdk/cmdline-tools/cmdline-tools ~/android-sdk/cmdline-tools/latest
+mkdir -p ~/Library/Android/sdk/cmdline-tools
+unzip -q cmdline-tools.zip -d ~/Library/Android/sdk/cmdline-tools
+mv ~/Library/Android/sdk/cmdline-tools/cmdline-tools ~/Library/Android/sdk/cmdline-tools/latest
 
 # Template Android Godot .NET + paket SDK
 python3 tools/fetch_android_templates.py
 bash tools/setup_android_sdk.sh
 ```
 
+Verifikasi JDK terdeteksi sistem:
+
+```bash
+/usr/libexec/java_home -V      # harus menampilkan 17.0.20.1 temurin-17.jdk
+```
+
 Lalu set di **Editor Settings → Export → Android**:
 
 ```text
-Java SDK Path    : ~/eva-toolchain/jdk17/Contents/Home
-Android SDK Path : ~/android-sdk
+Java SDK Path    : ~/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home
+Android SDK Path : ~/Library/Android/sdk
 Debug Keystore   : (dibiarkan default, Godot membuat debug.keystore otomatis)
 ```
 
@@ -116,7 +124,7 @@ bash tools/install_to_device.sh
 Atau pasang manual:
 
 ```bash
-~/android-sdk/platform-tools/adb install -r build/android/game1-kelas-b-eva.apk
+~/Library/Android/sdk/platform-tools/adb install -r build/android/game1-kelas-b-eva.apk
 ```
 
 Catatan: tutup Godot Editor saat melakukan export dari terminal, karena editor

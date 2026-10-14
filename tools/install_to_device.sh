@@ -3,7 +3,7 @@
 # Jalankan: bash tools/install_to_device.sh [path-apk]
 set -euo pipefail
 
-export ANDROID_HOME="${ANDROID_HOME:-$HOME/android-sdk}"
+export ANDROID_HOME="${ANDROID_HOME:-$HOME/Library/Android/sdk}"
 ADB="$ANDROID_HOME/platform-tools/adb"
 APK="${1:-build/android/game1-kelas-b-eva.apk}"
 PACKAGE_NAME="com.evanurhalisa.game1"
