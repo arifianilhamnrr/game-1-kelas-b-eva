@@ -50,13 +50,39 @@ func _build_sun() -> void:
 	_add_parallax_sprite(SUN, Vector2(770, 190), Vector2(0.72, 0.72), 0.035)
 
 func _build_clouds() -> void:
-	_add_moving_cloud(CLOUD_1, Vector2(-180, 150), Vector2(0.13, 0.13), 0.08, -7.0)
-	_add_moving_cloud(CLOUD_2, Vector2(380, 90), Vector2(0.10, 0.10), 0.06, -4.5)
-	_add_moving_cloud(CLOUD_1, Vector2(900, 250), Vector2(0.085, 0.085), 0.10, -6.0)
-	_add_moving_cloud(CLOUD_2, Vector2(1320, 175), Vector2(0.075, 0.075), 0.07, -3.5)
+	# Awan disebar di seluruh lebar arena agar setiap halaman preview terisi.
+	# Hanya dua aset yang dipakai, tetapi ukuran/tinggi/opacity divariasikan.
+	var cloud_layout: Array[Dictionary] = [
+		{"texture": CLOUD_1, "position": Vector2(170, 145), "scale": 0.105, "ratio": 0.08, "speed": -7.0, "alpha": 0.86},
+		{"texture": CLOUD_2, "position": Vector2(650, 255), "scale": 0.072, "ratio": 0.06, "speed": -4.2, "alpha": 0.70},
+		{"texture": CLOUD_1, "position": Vector2(1100, 80), "scale": 0.080, "ratio": 0.10, "speed": -5.8, "alpha": 0.76},
+		{"texture": CLOUD_2, "position": Vector2(1580, 175), "scale": 0.100, "ratio": 0.07, "speed": -3.8, "alpha": 0.82},
+		{"texture": CLOUD_1, "position": Vector2(2080, 285), "scale": 0.067, "ratio": 0.09, "speed": -6.5, "alpha": 0.66},
+		{"texture": CLOUD_2, "position": Vector2(2540, 105), "scale": 0.086, "ratio": 0.06, "speed": -4.5, "alpha": 0.78},
+		{"texture": CLOUD_1, "position": Vector2(3040, 195), "scale": 0.112, "ratio": 0.08, "speed": -7.2, "alpha": 0.84},
+		{"texture": CLOUD_2, "position": Vector2(3540, 310), "scale": 0.064, "ratio": 0.11, "speed": -5.0, "alpha": 0.62},
+		{"texture": CLOUD_1, "position": Vector2(4010, 95), "scale": 0.078, "ratio": 0.07, "speed": -6.0, "alpha": 0.74},
+		{"texture": CLOUD_2, "position": Vector2(4480, 210), "scale": 0.105, "ratio": 0.09, "speed": -4.0, "alpha": 0.84},
+		{"texture": CLOUD_1, "position": Vector2(5000, 300), "scale": 0.068, "ratio": 0.10, "speed": -6.8, "alpha": 0.65},
+		{"texture": CLOUD_2, "position": Vector2(5470, 125), "scale": 0.082, "ratio": 0.06, "speed": -4.4, "alpha": 0.76},
+		{"texture": CLOUD_1, "position": Vector2(5970, 225), "scale": 0.108, "ratio": 0.08, "speed": -7.0, "alpha": 0.84},
+		{"texture": CLOUD_2, "position": Vector2(6470, 75), "scale": 0.070, "ratio": 0.07, "speed": -4.8, "alpha": 0.68},
+		{"texture": CLOUD_1, "position": Vector2(6960, 290), "scale": 0.074, "ratio": 0.10, "speed": -6.2, "alpha": 0.70},
+		{"texture": CLOUD_2, "position": Vector2(7380, 165), "scale": 0.092, "ratio": 0.06, "speed": -3.7, "alpha": 0.80}
+	]
+	for cloud in cloud_layout:
+		var size := float(cloud.scale)
+		_add_moving_cloud(
+			cloud.texture as Texture2D,
+			cloud.position as Vector2,
+			Vector2(size, size),
+			float(cloud.ratio),
+			float(cloud.speed),
+			float(cloud.alpha)
+		)
 
-func _add_moving_cloud(texture: Texture2D, base_position: Vector2, sprite_scale: Vector2, ratio: float, speed: float) -> void:
-	var sprite := _create_sprite(texture, base_position, sprite_scale, Color(1.0, 0.94, 0.98, 0.82))
+func _add_moving_cloud(texture: Texture2D, base_position: Vector2, sprite_scale: Vector2, ratio: float, speed: float, alpha: float) -> void:
+	var sprite := _create_sprite(texture, base_position, sprite_scale, Color(1.0, 0.94, 0.98, alpha))
 	layers.append({
 		"node": sprite,
 		"base": base_position,
@@ -134,6 +160,10 @@ void fragment() {
 	return material
 
 func _process(delta: float) -> void:
+	# Di editor posisi arena penuh dipertahankan supaya preview mudah dirapikan.
+	# Animasi wrap hanya dijalankan ketika game dimainkan.
+	if Engine.is_editor_hint():
+		return
 	elapsed += delta
 	var camera := get_viewport().get_camera_2d()
 	var camera_position := camera.get_screen_center_position() if camera else Vector2.ZERO
@@ -143,7 +173,7 @@ func _process(delta: float) -> void:
 		var ratio := float(item.ratio)
 		if item.has("cloud_speed"):
 			item.cloud_offset = float(item.cloud_offset) + float(item.cloud_speed) * delta
-			var screen_x := fposmod(base.x + float(item.cloud_offset), 1600.0) - 260.0
+			var screen_x := fposmod(base.x + float(item.cloud_offset), 1800.0) - 360.0
 			node.position = Vector2(screen_x, base.y - camera_position.y * ratio * 0.04)
 		else:
 			var drift := float(item.drift)
