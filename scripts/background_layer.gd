@@ -2,12 +2,15 @@
 class_name MountainParallaxBackground
 extends CanvasLayer
 
-const SUN = preload("res://assets/background_custom/sun.png")
+const SUN = preload("res://assets/background_custom/sun_pixel.svg")
 const MOUNTAIN_FAR = preload("res://assets/background_custom/mountain_small.png")
 const MOUNTAIN_MID = preload("res://assets/background_custom/mountain_large_2.png")
 const MOUNTAIN_NEAR = preload("res://assets/background_custom/mountain_large_1.png")
 const CLOUD_1 = preload("res://assets/background_custom/cloud_1.png")
 const CLOUD_2 = preload("res://assets/background_custom/cloud_2.png")
+
+const ARENA_WIDTH := 7552.0
+const ARENA_HEIGHT := 720.0
 
 var layers: Array[Dictionary] = []
 var elapsed := 0.0
@@ -32,7 +35,8 @@ func _add_generated_child(node: Node) -> void:
 
 func _build_sky() -> void:
 	var sky := ColorRect.new()
-	sky.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	sky.position = Vector2.ZERO
+	sky.size = Vector2(ARENA_WIDTH, ARENA_HEIGHT)
 	sky.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	sky.material = _make_sky_material()
 	_add_generated_child(sky)
@@ -43,7 +47,7 @@ func _build_sun() -> void:
 	glow.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	glow.material = _make_sun_glow_material()
 	_add_generated_child(glow)
-	_add_parallax_sprite(SUN, Vector2(770, 190), Vector2(0.05, 0.05), 0.035)
+	_add_parallax_sprite(SUN, Vector2(770, 190), Vector2(0.72, 0.72), 0.035)
 
 func _build_clouds() -> void:
 	_add_moving_cloud(CLOUD_1, Vector2(-180, 150), Vector2(0.13, 0.13), 0.08, -7.0)
@@ -62,15 +66,19 @@ func _add_moving_cloud(texture: Texture2D, base_position: Vector2, sprite_scale:
 	})
 
 func _build_mountains() -> void:
-	_add_repeating_sprite(MOUNTAIN_FAR, Vector2(260, 485), Vector2(0.31, 0.31), 0.10, Color(0.66, 0.60, 0.85, 0.72))
-	_add_repeating_sprite(MOUNTAIN_MID, Vector2(760, 490), Vector2(0.36, 0.36), 0.18, Color(0.84, 0.72, 0.92, 0.92))
-	_add_repeating_sprite(MOUNTAIN_NEAR, Vector2(330, 550), Vector2(0.43, 0.43), 0.27)
-	_add_repeating_sprite(MOUNTAIN_NEAR, Vector2(1030, 570), Vector2(0.46, 0.46), 0.31)
+	_add_mountain_row(MOUNTAIN_FAR, 500.0, Vector2(0.31, 0.31), 0.10, Color(0.66, 0.60, 0.85, 0.72))
+	_add_mountain_row(MOUNTAIN_MID, 525.0, Vector2(0.36, 0.36), 0.18, Color(0.84, 0.72, 0.92, 0.92))
+	_add_mountain_row(MOUNTAIN_NEAR, 570.0, Vector2(0.43, 0.43), 0.27)
 
-func _add_repeating_sprite(texture: Texture2D, base_position: Vector2, sprite_scale: Vector2, ratio: float, tint := Color.WHITE) -> void:
-	# Beberapa salinan menjaga pegunungan tetap memenuhi layar sepanjang level.
-	for index in range(-1, 5):
-		_add_parallax_sprite(texture, base_position + Vector2(index * 1400.0, 0.0), sprite_scale, ratio, 0.0, tint)
+func _add_mountain_row(texture: Texture2D, y_position: float, sprite_scale: Vector2, ratio: float, tint := Color.WHITE) -> void:
+	# Center pertama/terakhir memperhitungkan lebar sprite, sehingga tidak ada
+	# gambar yang menjorok ke luar batas arena pada preview editor.
+	var visual_width := texture.get_width() * sprite_scale.x
+	var spacing := visual_width * 0.76
+	var x_position := visual_width * 0.5
+	while x_position <= ARENA_WIDTH - visual_width * 0.5:
+		_add_parallax_sprite(texture, Vector2(x_position, y_position), sprite_scale, ratio, 0.0, tint)
+		x_position += spacing
 
 func _add_parallax_sprite(texture: Texture2D, base_position: Vector2, sprite_scale: Vector2, ratio: float, drift := 0.0, tint := Color.WHITE) -> void:
 	var sprite := _create_sprite(texture, base_position, sprite_scale, tint)
@@ -114,10 +122,10 @@ void fragment() {
 	vec2 center = vec2(0.713, 0.264);
 	vec2 aspect_uv = vec2((UV.x - center.x) * 1.5, UV.y - center.y);
 	float distance_from_sun = length(aspect_uv);
-	float wide_glow = 1.0 - smoothstep(0.03, 0.34, distance_from_sun);
-	float soft_core = 1.0 - smoothstep(0.0, 0.14, distance_from_sun);
+	float wide_glow = 1.0 - smoothstep(0.02, 0.22, distance_from_sun);
+	float soft_core = 1.0 - smoothstep(0.0, 0.09, distance_from_sun);
 	vec3 glow_color = mix(vec3(1.0, 0.28, 0.05), vec3(1.0, 0.82, 0.28), soft_core);
-	float alpha = wide_glow * 0.22 + soft_core * 0.15;
+	float alpha = wide_glow * 0.17 + soft_core * 0.12;
 	COLOR = vec4(glow_color * alpha, alpha);
 }
 """

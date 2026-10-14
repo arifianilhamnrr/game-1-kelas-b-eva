@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" shape-rendering="crispEdges">
+  <!-- Pixel rays -->
+  <g fill="#ff9a24">
+    <path d="M58 2h12v18H58zM58 108h12v18H58zM2 58h18v12H2zM108 58h18v12h-18z"/>
+    <path d="M18 18h10v10H18zM100 18h10v10h-10zM18 100h10v10H18zM100 100h10v10h-10z"/>
+    <path d="M10 34h14v8H10zM104 34h14v8h-14zM10 86h14v8H10zM104 86h14v8h-14z"/>
+  </g>
+  <!-- Dark pixel outline -->
+  <path fill="#342052" d="M48 22h32v6h12v6h8v8h6v12h6v24h-6v12h-6v8h-8v6H80v6H48v-6H36v-6h-8v-8h-6V78h-6V54h6V42h6v-8h8v-6h12z"/>
+  <!-- Orange shell -->
+  <path fill="#ff7a18" d="M48 28h32v6h12v8h8v12h6v24h-6v12h-8v8H80v6H48v-6H36v-8h-8V78h-6V54h6V42h8v-8h12z"/>
+  <!-- Gold body -->
+  <path fill="#ffbd20" d="M48 34h32v6h12v8h6v12h4v12h-4v12h-6v8H80v6H48v-6H36v-8h-6V72h-4V60h4V48h6v-8h12z"/>
+  <!-- Bright center -->
+  <path fill="#ffe45a" d="M48 42h28v5h11v7h6v11h4v11h-5v9h-8v7H72v5H48v-5H39v-7h-6V74h-3V62h5V52h6v-6h7z"/>
+  <path fill="#fff3a0" d="M45 49h20v6H45zM39 55h34v8H39zM36 63h40v12H36zM41 75h30v8H41z"/>
+</svg>
