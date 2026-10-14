@@ -12573,9 +12573,11 @@ script = ExtResource("40_s32dh")
 stomp_distance = 85.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Map/Traps/RockHead" unique_id=1405848199]
+position = Vector2(1.6250608, -28.249996)
 texture = ExtResource("41_037st")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Traps/RockHead" unique_id=1675509429]
+position = Vector2(1.6250608, -29.499996)
 shape = SubResource("RectangleShape2D_t2xxv")
 
 [node name="@Area2D@16" type="Area2D" parent="Map/Traps" unique_id=497072345]

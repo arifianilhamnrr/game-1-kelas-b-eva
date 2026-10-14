@@ -100,7 +100,27 @@ Preset Android sudah dikonfigurasi:
 - Nama aplikasi: `Game 1 Kelas B`
 - Versi: `1.0`
 - Arsitektur: `arm64-v8a` dan `armeabi-v7a`
+- Native library dikompres agar APK lebih kecil
 - Ikon launcher dan splash dibuat oleh `tools/generate_android_icons.gd`
+
+Hasil export: `build/android/game1-kelas-b-eva.apk` (sekitar 65 MB).
+
+### Pasang ke HP
+
+Hubungkan HP dengan **USB debugging** aktif, lalu:
+
+```bash
+bash tools/install_to_device.sh
+```
+
+Atau pasang manual:
+
+```bash
+~/android-sdk/platform-tools/adb install -r build/android/game1-kelas-b-eva.apk
+```
+
+Catatan: tutup Godot Editor saat melakukan export dari terminal, karena editor
+bisa menimpa `export_presets.cfg` dan mengaktifkan kembali arsitektur `x86`.
 
 ### Ikon
 
