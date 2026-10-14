@@ -1,3 +1,4 @@
+@tool
 class_name MountainParallaxBackground
 extends CanvasLayer
 
@@ -13,27 +14,35 @@ var elapsed := 0.0
 
 func _ready() -> void:
 	layer = -100
-	var legacy := get_node_or_null("TextureRect")
-	if legacy:
-		legacy.queue_free()
+	_clear_generated_preview()
 	_build_sky()
 	_build_sun()
 	_build_clouds()
 	_build_mountains()
+
+func _clear_generated_preview() -> void:
+	layers.clear()
+	for child in get_children():
+		if child.has_meta("generated_background"):
+			child.queue_free()
+
+func _add_generated_child(node: Node) -> void:
+	node.set_meta("generated_background", true)
+	add_child(node)
 
 func _build_sky() -> void:
 	var sky := ColorRect.new()
 	sky.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	sky.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	sky.material = _make_sky_material()
-	add_child(sky)
+	_add_generated_child(sky)
 
 func _build_sun() -> void:
 	var glow := ColorRect.new()
 	glow.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	glow.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	glow.material = _make_sun_glow_material()
-	add_child(glow)
+	_add_generated_child(glow)
 	_add_parallax_sprite(SUN, Vector2(770, 190), Vector2(0.05, 0.05), 0.035)
 
 func _build_clouds() -> void:
@@ -73,7 +82,7 @@ func _create_sprite(texture: Texture2D, base_position: Vector2, sprite_scale: Ve
 	sprite.position = base_position
 	sprite.scale = sprite_scale
 	sprite.modulate = tint
-	add_child(sprite)
+	_add_generated_child(sprite)
 	return sprite
 
 func _make_sky_material() -> ShaderMaterial:

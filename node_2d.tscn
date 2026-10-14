@@ -1,63 +1,65 @@
 [gd_scene format=4 uid="uid://dlc6j132wc2oj"]
 
-[ext_resource type="Script" path="res://scripts/background_layer.gd" id="1_0xo8l"]
-[ext_resource type="Texture2D" path="res://assets/Background/Brown.png" id="1_d21ai"]
-[ext_resource type="Texture2D" path="res://assets/Terrain/Terrain (16x16).png" id="2_rj586"]
-[ext_resource type="Texture2D" path="res://assets/Items/Checkpoints/Start/Start (Idle).png" id="3_4d7sh"]
-[ext_resource type="Texture2D" path="res://assets/Items/Checkpoints/Checkpoint/Checkpoint (Flag Idle)(64x64).png" id="4_ir8iy"]
-[ext_resource type="Texture2D" path="res://assets/Items/Checkpoints/End/End (Idle).png" id="5_hqns4"]
-[ext_resource type="Script" path="res://scripts/finish_flag.gd" id="6_ornx7"]
-[ext_resource type="Texture2D" path="res://assets/Items/Fruits/Apple.png" id="6_x0ka3"]
-[ext_resource type="Texture2D" path="res://assets/Items/Boxes/Box1/Idle.png" id="7_0h7mo"]
-[ext_resource type="Script" path="res://scripts/checkpoint.gd" id="7_cnnru"]
-[ext_resource type="Texture2D" path="res://assets/Items/Checkpoints/Checkpoint/Checkpoint (No Flag).png" id="8_540hr"]
+[ext_resource type="Script" uid="uid://drnv8n2ygj1cs" path="res://scripts/background_layer.gd" id="1_0xo8l"]
+[ext_resource type="Texture2D" uid="uid://d3sskgms61le8" path="res://assets/Terrain/Terrain (16x16).png" id="2_rj586"]
+[ext_resource type="Texture2D" uid="uid://bcq7bcl7i7oxr" path="res://assets/Items/Checkpoints/Start/Start (Idle).png" id="3_4d7sh"]
+[ext_resource type="Texture2D" uid="uid://d5mwxaf5e4wi" path="res://assets/Items/Checkpoints/Checkpoint/Checkpoint (Flag Idle)(64x64).png" id="4_ir8iy"]
+[ext_resource type="Texture2D" uid="uid://cxh1qihuxsewc" path="res://assets/Items/Checkpoints/End/End (Idle).png" id="5_hqns4"]
+[ext_resource type="Script" uid="uid://c0l0gjwxm3m30" path="res://scripts/finish_flag.gd" id="6_ornx7"]
+[ext_resource type="Texture2D" uid="uid://bnewobjv1sy2l" path="res://assets/Items/Fruits/Apple.png" id="6_x0ka3"]
+[ext_resource type="Texture2D" uid="uid://cmgd7i36acf4" path="res://assets/Items/Boxes/Box1/Idle.png" id="7_0h7mo"]
+[ext_resource type="Script" uid="uid://cc8betjm5t06g" path="res://scripts/checkpoint.gd" id="7_cnnru"]
+[ext_resource type="Texture2D" uid="uid://dmubctacnmyxm" path="res://assets/Items/Checkpoints/Checkpoint/Checkpoint (No Flag).png" id="8_540hr"]
 [ext_resource type="PackedScene" path="res://characters/mask_dude.tscn" id="8_ir8iy"]
-[ext_resource type="Script" path="res://characters/mask_dude.gd" id="9_4d7sh"]
-[ext_resource type="Script" path="res://scripts/fruit.gd" id="10_6ip5v"]
-[ext_resource type="AudioStream" path="res://assets/Audio/mario_bgm.mp3" id="10_ir8iy"]
-[ext_resource type="Texture2D" path="res://assets/Items/Fruits/Collected.png" id="11_q5dlx"]
-[ext_resource type="Texture2D" path="res://assets/Items/Fruits/Bananas.png" id="12_c4wnb"]
-[ext_resource type="Texture2D" path="res://assets/Items/Fruits/Cherries.png" id="13_7plk7"]
-[ext_resource type="Texture2D" path="res://assets/Items/Fruits/Kiwi.png" id="14_fbwgr"]
-[ext_resource type="Texture2D" path="res://assets/Items/Fruits/Melon.png" id="15_7mj2a"]
-[ext_resource type="Texture2D" path="res://assets/Items/Fruits/Strawberry.png" id="16_fshgd"]
-[ext_resource type="Texture2D" path="res://assets/Items/Fruits/Pineapple.png" id="17_lbrxf"]
-[ext_resource type="Texture2D" path="res://assets/Items/Fruits/Orange.png" id="18_xjt7e"]
-[ext_resource type="Script" path="res://scripts/hazard.gd" id="26_4qosj"]
-[ext_resource type="Texture2D" path="res://assets/Traps/Spikes/Idle.png" id="27_cjlbh"]
-[ext_resource type="Script" path="res://scripts/trampoline.gd" id="28_kfelt"]
-[ext_resource type="Texture2D" path="res://assets/Traps/Trampoline/Idle.png" id="29_ytlpd"]
-[ext_resource type="Texture2D" path="res://assets/Traps/Trampoline/Jump (28x28).png" id="30_2v765"]
-[ext_resource type="Script" path="res://scripts/saw.gd" id="31_b8fb0"]
-[ext_resource type="Texture2D" path="res://assets/Traps/Saw/On (38x38).png" id="32_ma08v"]
-[ext_resource type="Script" path="res://scripts/victory_canvas.gd" id="34_s32dh"]
-[ext_resource type="Script" path="res://scripts/moving_platform.gd" id="35_kfelt"]
-[ext_resource type="Texture2D" path="res://assets/Traps/Platforms/Brown On (32x8).png" id="36_ytlpd"]
-[ext_resource type="Script" path="res://scripts/spiked_ball.gd" id="37_2v765"]
-[ext_resource type="Texture2D" path="res://assets/Traps/Spiked Ball/Chain.png" id="38_b8fb0"]
-[ext_resource type="Texture2D" path="res://assets/Traps/Spiked Ball/Spiked Ball.png" id="39_ma08v"]
-[ext_resource type="Script" path="res://scripts/rock_head.gd" id="40_s32dh"]
-[ext_resource type="Texture2D" path="res://assets/Traps/Rock Head/Idle.png" id="41_037st"]
-[ext_resource type="Texture2D" path="res://assets/Traps/Rock Head/Top Hit (42x42).png" id="41_xjt7e"]
-[ext_resource type="Texture2D" path="res://assets/Traps/Rock Head/Blink (42x42).png" id="42_0xo8l"]
-[ext_resource type="Script" path="res://scripts/fire_trap.gd" id="42_6orn5"]
-[ext_resource type="Texture2D" path="res://assets/Traps/Fire/Off.png" id="43_whnp6"]
-[ext_resource type="Texture2D" path="res://assets/Traps/Fire/On (16x32).png" id="44_22e24"]
-[ext_resource type="Script" path="res://scripts/enemy.gd" id="45_m7xe6"]
-[ext_resource type="Script" path="res://scripts/touch_controls.gd" id="46_2v765"]
-[ext_resource type="Texture2D" path="res://assets/TouchControls/btn_left_normal.png" id="46_ytlpd"]
-[ext_resource type="Texture2D" path="res://assets/TouchControls/btn_left_pressed.png" id="47_2v765"]
-[ext_resource type="Texture2D" path="res://assets/TouchControls/btn_right_normal.png" id="48_b8fb0"]
-[ext_resource type="Texture2D" path="res://assets/TouchControls/btn_right_pressed.png" id="49_ma08v"]
-[ext_resource type="Script" path="res://scripts/hud.gd" id="50_qgxp6"]
-[ext_resource type="Texture2D" path="res://assets/TouchControls/btn_jump_normal.png" id="50_s32dh"]
-[ext_resource type="Texture2D" path="res://assets/TouchControls/btn_jump_pressed.png" id="51_037st"]
-[ext_resource type="Texture2D" path="res://assets/TouchControls/btn_restart_normal.png" id="52_6orn5"]
-[ext_resource type="Texture2D" path="res://assets/TouchControls/btn_restart_pressed.png" id="53_whnp6"]
-[ext_resource type="Shader" path="res://scripts/shaders/terrain_sunset.gdshader" id="54_terrain"]
+[ext_resource type="Script" uid="uid://brg740o8m23qs" path="res://characters/mask_dude.gd" id="9_4d7sh"]
+[ext_resource type="Script" uid="uid://ct48p0atxfx3n" path="res://scripts/fruit.gd" id="10_6ip5v"]
+[ext_resource type="AudioStream" uid="uid://yys6j6qaqqg7" path="res://assets/Audio/mario_bgm.mp3" id="10_ir8iy"]
+[ext_resource type="Texture2D" uid="uid://djjb3x8uh81ft" path="res://assets/Items/Fruits/Collected.png" id="11_q5dlx"]
+[ext_resource type="Texture2D" uid="uid://ffq00ciw8dtj" path="res://assets/Items/Fruits/Bananas.png" id="12_c4wnb"]
+[ext_resource type="Texture2D" uid="uid://cvpjs5c1ijljc" path="res://assets/Items/Fruits/Cherries.png" id="13_7plk7"]
+[ext_resource type="Texture2D" uid="uid://jnonw1ahw8qq" path="res://assets/Items/Fruits/Kiwi.png" id="14_fbwgr"]
+[ext_resource type="Texture2D" uid="uid://ckx1yx8qy5b" path="res://assets/Items/Fruits/Melon.png" id="15_7mj2a"]
+[ext_resource type="Texture2D" uid="uid://xkxi5okl711c" path="res://assets/Items/Fruits/Strawberry.png" id="16_fshgd"]
+[ext_resource type="Texture2D" uid="uid://cwv8bnqe8fex" path="res://assets/Items/Fruits/Pineapple.png" id="17_lbrxf"]
+[ext_resource type="Texture2D" uid="uid://bv2t8njxeojif" path="res://assets/Items/Fruits/Orange.png" id="18_xjt7e"]
+[ext_resource type="Script" uid="uid://cj7bbhox8thtf" path="res://scripts/hazard.gd" id="26_4qosj"]
+[ext_resource type="Texture2D" uid="uid://iomijnyonrxx" path="res://assets/Traps/Spikes/Idle.png" id="27_cjlbh"]
+[ext_resource type="Script" uid="uid://78bqildvwa6c" path="res://scripts/trampoline.gd" id="28_kfelt"]
+[ext_resource type="Texture2D" uid="uid://baimjayihd2oe" path="res://assets/Traps/Trampoline/Idle.png" id="29_ytlpd"]
+[ext_resource type="Texture2D" uid="uid://depnm0emycu6x" path="res://assets/Traps/Trampoline/Jump (28x28).png" id="30_2v765"]
+[ext_resource type="Script" uid="uid://doixr7wv6n4h8" path="res://scripts/saw.gd" id="31_b8fb0"]
+[ext_resource type="Texture2D" uid="uid://cvk81fwr07tew" path="res://assets/Traps/Saw/On (38x38).png" id="32_ma08v"]
+[ext_resource type="Script" uid="uid://qjrq4dtu3yi1" path="res://scripts/victory_canvas.gd" id="34_s32dh"]
+[ext_resource type="Script" uid="uid://ctw3jfophuney" path="res://scripts/moving_platform.gd" id="35_kfelt"]
+[ext_resource type="Texture2D" uid="uid://cg0afifqlhoc1" path="res://assets/Traps/Platforms/Brown On (32x8).png" id="36_ytlpd"]
+[ext_resource type="Script" uid="uid://dcbd80cy8y08h" path="res://scripts/spiked_ball.gd" id="37_2v765"]
+[ext_resource type="Texture2D" uid="uid://c4n3c6bqe822h" path="res://assets/Traps/Spiked Ball/Chain.png" id="38_b8fb0"]
+[ext_resource type="Texture2D" uid="uid://b6mmpcu844roj" path="res://assets/Traps/Spiked Ball/Spiked Ball.png" id="39_ma08v"]
+[ext_resource type="Script" uid="uid://ci73eyhkwjvxa" path="res://scripts/rock_head.gd" id="40_s32dh"]
+[ext_resource type="Texture2D" uid="uid://b04bjlnu0cw2g" path="res://assets/Traps/Rock Head/Idle.png" id="41_037st"]
+[ext_resource type="Texture2D" uid="uid://mio4ipe2gwnn" path="res://assets/Traps/Rock Head/Top Hit (42x42).png" id="41_xjt7e"]
+[ext_resource type="Texture2D" uid="uid://bseu7ladpcnkd" path="res://assets/Traps/Rock Head/Blink (42x42).png" id="42_0xo8l"]
+[ext_resource type="Script" uid="uid://rxgkjlh737ij" path="res://scripts/fire_trap.gd" id="42_6orn5"]
+[ext_resource type="Texture2D" uid="uid://d1ttjw7awi0l8" path="res://assets/Traps/Fire/Off.png" id="43_whnp6"]
+[ext_resource type="Texture2D" uid="uid://dcegnq4lxak6k" path="res://assets/Traps/Fire/On (16x32).png" id="44_22e24"]
+[ext_resource type="Script" uid="uid://c3fko2pptt6kv" path="res://scripts/enemy.gd" id="45_m7xe6"]
+[ext_resource type="Script" uid="uid://bh7khbk8epy2d" path="res://scripts/touch_controls.gd" id="46_2v765"]
+[ext_resource type="Texture2D" uid="uid://c5ggge8cf61ve" path="res://assets/TouchControls/btn_left_normal.png" id="46_ytlpd"]
+[ext_resource type="Texture2D" uid="uid://d3ngahn8dp8et" path="res://assets/TouchControls/btn_left_pressed.png" id="47_2v765"]
+[ext_resource type="Texture2D" uid="uid://c2q34afraxx2r" path="res://assets/TouchControls/btn_right_normal.png" id="48_b8fb0"]
+[ext_resource type="Texture2D" uid="uid://dmd43aomjak4m" path="res://assets/TouchControls/btn_right_pressed.png" id="49_ma08v"]
+[ext_resource type="Script" uid="uid://cx0kkkn5503ft" path="res://scripts/hud.gd" id="50_qgxp6"]
+[ext_resource type="Texture2D" uid="uid://b1q7kppqxa7my" path="res://assets/TouchControls/btn_jump_normal.png" id="50_s32dh"]
+[ext_resource type="Texture2D" uid="uid://d1m4envnwvqao" path="res://assets/TouchControls/btn_jump_pressed.png" id="51_037st"]
+[ext_resource type="Texture2D" uid="uid://bubwfsab0p61g" path="res://assets/TouchControls/btn_restart_normal.png" id="52_6orn5"]
+[ext_resource type="Texture2D" uid="uid://c62m3egfnif5m" path="res://assets/TouchControls/btn_restart_pressed.png" id="53_whnp6"]
+[ext_resource type="Shader" uid="uid://brdg3q4lifugx" path="res://scripts/shaders/terrain_sunset.gdshader" id="54_terrain"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_terrain_sunset"]
 shader = ExtResource("54_terrain")
+shader_parameter/shadow_color = Color(0.12, 0.07, 0.25, 1)
+shader_parameter/mid_color = Color(0.48, 0.22, 0.48, 1)
+shader_parameter/light_color = Color(1, 0.58, 0.3, 1)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nr8wp"]
 texture = ExtResource("2_rj586")
@@ -180,7 +182,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m7xe6"]
-size = Vector2(24, 48)
+size = Vector2(24, 252.49998)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wqmsq"]
 atlas = ExtResource("4_ir8iy")
@@ -278,7 +280,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c6xte"]
-size = Vector2(24, 48)
+size = Vector2(24, 528.125)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5yc5u"]
 atlas = ExtResource("4_ir8iy")
@@ -376,7 +378,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kjk4q"]
-size = Vector2(24, 48)
+size = Vector2(24, 463.12506)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_00y5r"]
 atlas = ExtResource("4_ir8iy")
@@ -474,7 +476,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dclek"]
-size = Vector2(35.125244, 346.25)
+size = Vector2(35.125244, 493.12506)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gtve7"]
 atlas = ExtResource("4_ir8iy")
@@ -572,7 +574,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xpfck"]
-size = Vector2(24, 48)
+size = Vector2(24, 234.43752)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c3255"]
 atlas = ExtResource("4_ir8iy")
@@ -670,7 +672,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uc8j5"]
-size = Vector2(24, 48)
+size = Vector2(24, 194.62503)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4m84o"]
 size = Vector2(40, 48)
@@ -11306,12 +11308,7 @@ border_width_top = 4
 border_width_right = 4
 border_width_bottom = 4
 border_color = Color(0.98, 0.56, 0.18, 1)
-corner_radius_top_left = 0
-corner_radius_top_right = 0
-corner_radius_bottom_right = 0
-corner_radius_bottom_left = 0
 shadow_color = Color(0.18, 0.04, 0.28, 0.85)
-shadow_size = 0
 shadow_offset = Vector2(7, 7)
 
 [node name="Node2D" type="Node2D" unique_id=377837935]
@@ -11320,13 +11317,6 @@ texture_filter = 1
 [node name="BackgroundLayer" type="CanvasLayer" parent="." unique_id=1856896112]
 layer = -100
 script = ExtResource("1_0xo8l")
-
-[node name="TextureRect" type="TextureRect" parent="BackgroundLayer" unique_id=459598138]
-offset_right = 1208.0
-offset_bottom = 720.0
-mouse_filter = 2
-texture = ExtResource("1_d21ai")
-stretch_mode = 1
 
 [node name="Map" type="Node2D" parent="." unique_id=1235911753]
 scale = Vector2(1.6, 1.6)
@@ -11352,7 +11342,8 @@ animation = &"no_flag"
 autoplay = "no_flag"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Landmarks/Checkpoint1" unique_id=148572389]
-position = Vector2(0, 8)
+position = Vector2(0, -94.24997)
+scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_m7xe6")
 
 [node name="Checkpoint2" type="Area2D" parent="Map/Landmarks" unique_id=668790764]
@@ -11366,7 +11357,8 @@ animation = &"no_flag"
 autoplay = "no_flag"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Landmarks/Checkpoint2" unique_id=1430401032]
-position = Vector2(9.999998, 18.750008)
+position = Vector2(10, -9.687515)
+scale = Vector2(0.9999998, 0.9999998)
 shape = SubResource("RectangleShape2D_c6xte")
 
 [node name="Checkpoint3" type="Area2D" parent="Map/Landmarks" unique_id=1845370769]
@@ -11374,12 +11366,14 @@ position = Vector2(1664, 328)
 script = ExtResource("7_cnnru")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Map/Landmarks/Checkpoint3" unique_id=1455919800]
+position = Vector2(-0.8750915, -8.624991)
 sprite_frames = SubResource("SpriteFrames_1hwe0")
 animation = &"no_flag"
 autoplay = "no_flag"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Landmarks/Checkpoint3" unique_id=359793884]
-position = Vector2(0, 8)
+position = Vector2(4.125122, -96.43753)
+scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_kjk4q")
 
 [node name="Checkpoint4" type="Area2D" parent="Map/Landmarks" unique_id=860670779]
@@ -11393,8 +11387,8 @@ animation = &"no_flag"
 autoplay = "no_flag"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Landmarks/Checkpoint4" unique_id=1144974728]
-position = Vector2(8.687012, -18.25)
-scale = Vector2(0.9999998, 0.9999998)
+position = Vector2(8.687012, -91.687485)
+scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_dclek")
 
 [node name="Checkpoint5" type="Area2D" parent="Map/Landmarks" unique_id=991648472]
@@ -11407,7 +11401,8 @@ animation = &"no_flag"
 autoplay = "no_flag"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Landmarks/Checkpoint5" unique_id=1448139364]
-position = Vector2(0, 8)
+position = Vector2(4.8745117, -90.28125)
+scale = Vector2(0.9999998, 0.9999998)
 shape = SubResource("RectangleShape2D_xpfck")
 
 [node name="Checkpoint6" type="Area2D" parent="Map/Landmarks" unique_id=1571650276]
@@ -11420,7 +11415,8 @@ animation = &"no_flag"
 autoplay = "no_flag"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Landmarks/Checkpoint6" unique_id=1674202981]
-position = Vector2(0, 8)
+position = Vector2(0, -65.31248)
+scale = Vector2(0.9999998, 0.9999998)
 shape = SubResource("RectangleShape2D_uc8j5")
 
 [node name="Finish" type="Area2D" parent="Map/Landmarks" unique_id=1244463577]
@@ -13024,11 +13020,11 @@ stream = ExtResource("10_ir8iy")
 autoplay = true
 
 [node name="VictoryCanvas" type="CanvasLayer" parent="." unique_id=870098175]
-layer = 10
 process_mode = 3
+layer = 10
 script = ExtResource("34_s32dh")
 
-[node name="EndOverlay" type="ColorRect" parent="VictoryCanvas"]
+[node name="EndOverlay" type="ColorRect" parent="VictoryCanvas" unique_id=1124459471]
 visible = false
 anchors_preset = 15
 anchor_right = 1.0
@@ -13069,23 +13065,25 @@ horizontal_alignment = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.95, 0.4, 1)
 theme_override_font_sizes/font_size = 20
-text = "SKOR AKHIR: 000000\nBUAH TERKUMPUL: 0"
+text = "SKOR AKHIR: 000000
+BUAH TERKUMPUL: 0"
 horizontal_alignment = 1
 
 [node name="SubLabel" type="Label" parent="VictoryCanvas/EndOverlay/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1456223261]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
 theme_override_font_sizes/font_size = 18
-text = "Hebat, Eva Nur Halisa!\nKamu berhasil menyelesaikan petualangan ini."
+text = "Hebat, Eva Nur Halisa!
+Kamu berhasil menyelesaikan petualangan ini."
 horizontal_alignment = 1
 
-[node name="RestartButton" type="Button" parent="VictoryCanvas/EndOverlay/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="RestartButton" type="Button" parent="VictoryCanvas/EndOverlay/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1367216367]
 custom_minimum_size = Vector2(0, 58)
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "MAIN LAGI"
 
-[node name="HomeButton" type="Button" parent="VictoryCanvas/EndOverlay/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="HomeButton" type="Button" parent="VictoryCanvas/EndOverlay/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1832092629]
 custom_minimum_size = Vector2(0, 58)
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
