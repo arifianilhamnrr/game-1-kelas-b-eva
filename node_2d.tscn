@@ -13057,24 +13057,19 @@ theme_override_constants/separation = 18
 [node name="TitleLabel" type="Label" parent="VictoryCanvas/EndOverlay/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=475598359]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.65, 0.16, 1)
+theme_override_colors/font_shadow_color = Color(0.25, 0.05, 0.3, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
 theme_override_font_sizes/font_size = 36
-text = "★ GAME SELESAI! ★"
+text = "CONGRATS!"
 horizontal_alignment = 1
 
 [node name="FinalScoreLabel" type="Label" parent="VictoryCanvas/EndOverlay/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1492374808]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.95, 0.4, 1)
-theme_override_font_sizes/font_size = 20
-text = "SKOR AKHIR: 000000
-BUAH TERKUMPUL: 0"
-horizontal_alignment = 1
-
-[node name="SubLabel" type="Label" parent="VictoryCanvas/EndOverlay/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1456223261]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
-theme_override_font_sizes/font_size = 18
-text = "Hebat, Eva Nur Halisa!
-Kamu berhasil menyelesaikan petualangan ini."
+theme_override_font_sizes/font_size = 22
+text = "SKOR: 000000
+BUAH: 0"
 horizontal_alignment = 1
 
 [node name="RestartButton" type="Button" parent="VictoryCanvas/EndOverlay/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1367216367]

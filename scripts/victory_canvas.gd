@@ -19,7 +19,7 @@ func show_victory() -> void:
 	get_tree().paused = true
 	overlay.visible = true
 	if score_label:
-		score_label.text = "SKOR AKHIR: %06d\nBUAH TERKUMPUL: %d" % [GameState.score, GameState.fruits]
+		score_label.text = "SKOR: %06d\nBUAH: %d" % [GameState.score, GameState.fruits]
 	panel.modulate.a = 0.0
 	panel.scale = Vector2(0.78, 0.78)
 	panel.pivot_offset = panel.size / 2.0
