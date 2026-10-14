@@ -95,6 +95,24 @@ Debug Keystore   : (dibiarkan default, Godot membuat debug.keystore otomatis)
 
 ### Install build template dan export
 
+Cara praktis:
+
+```bash
+bash tools/build_android.sh            # debug
+bash tools/build_android.sh release    # release (butuh keystore rilis)
+```
+
+Keystore rilis dibaca dari environment variable supaya password tidak
+tersimpan di repository:
+
+```bash
+export GODOT_ANDROID_KEYSTORE_RELEASE_PATH="$HOME/Library/Application Support/Godot/keystores/release.keystore"
+export GODOT_ANDROID_KEYSTORE_RELEASE_USER="eva-release"
+export GODOT_ANDROID_KEYSTORE_RELEASE_PASSWORD="evarelease"
+```
+
+Atau manual:
+
 ```bash
 /Applications/Godot_mono.app/Contents/MacOS/Godot --headless --path . \
   --install-android-build-template
